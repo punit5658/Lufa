@@ -144,7 +144,6 @@ class Order {
 			foreach ( $result_array['box_items'] as $key1 => $boxes ) {
 				foreach ( $boxes as $key2 => $item ) {
 					$new_arr['box_items'][ $key1 ][ $result_array['box_items'][ $key1 ][ $key2 ][0] ][] = $result_array['box_items'][ $key1 ][ $key2 ][0];
-					// $result_array['box_items'][ $key1 ][$result_array['box_items'][ $key1 ][ $key2 ][2]] = $result_array['box_items'][ $key1 ][ $key2 ][2];
 				}
 			}
 			echo 'Total Number of BOX : ' . $result_array['total_box'];
