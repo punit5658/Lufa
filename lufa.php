@@ -15,7 +15,7 @@ $order->calculate_boxes(); // Compalsary Call for calculate boxes
 // Simple Array Output
 //var_dump( $order->getbox_count() ); // It will display 'Total Box' & 'Box Items' with Index
 // Beautify Output
-var_dump( $order->beautifyOutput( $order->getbox_count() ) ); // It will display 'Total Box' & 'Box Items with product ID'
+$order->beautifyOutput( $order->getbox_count() ); // It will display 'Total Box' & 'Box Items with product ID'
 
 // echo '<pre>' . var_export($order, true) . '</pre>';
 

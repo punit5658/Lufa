@@ -143,10 +143,22 @@ class Order {
 		if ( isset( $result_array['box_items'] ) ) :
 			foreach ( $result_array['box_items'] as $key1 => $boxes ) {
 				foreach ( $boxes as $key2 => $item ) {
-					$new_arr['box_items'][ $key1 ][ $key2 ]['product_id'] = $result_array['box_items'][ $key1 ][ $key2 ][0];
-					$new_arr['box_items'][ $key1 ][ $key2 ]['volume']     = $result_array['box_items'][ $key1 ][ $key2 ][2];
+					$new_arr['box_items'][ $key1 ][ $result_array['box_items'][ $key1 ][ $key2 ][0] ][] = $result_array['box_items'][ $key1 ][ $key2 ][0];
+					// $result_array['box_items'][ $key1 ][$result_array['box_items'][ $key1 ][ $key2 ][2]] = $result_array['box_items'][ $key1 ][ $key2 ][2];
 				}
 			}
+			echo 'Total Number of BOX : ' . $result_array['total_box'];
+			foreach ( $new_arr as $key => $boxcount ) {
+
+				foreach ( $boxcount as $pid => $value ) {
+
+					echo "\nBox Details: " . ( $pid + 1 );
+					foreach ( $value as $id => $total ) {
+						echo "\nProduct ID {$id} and Quantity " . count( $value[ $id ] );
+					}
+				}
+			}
+			echo "\n";
 		endif;
 		$new_arr['total_box'] = $result_array['total_box'];
 		return $new_arr;
